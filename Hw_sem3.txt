@@ -1,0 +1,85 @@
+  Задание
+
+• Создать два произвольных файла.
+Первому присвоить права на чтение и запись для владельца и группы, только на чтение — для всех.
+Второму присвоить права на чтение и запись только для владельца. Сделать это в численном и символьном виде.
+Назначить новых владельца и группу для директории целиком.
+
+Управление пользователями:
+* создать пользователя, используя утилиту useradd и adduser;
+* удалить пользователя, используя утилиту userdel.
+
+Управление группами:
+
+создать группу с использованием утилит groupadd и addgroup;
+попрактиковаться в смене групп у пользователей;
+добавить пользователя в группу, не меняя основной;
+• Создать пользователя с правами суперпользователя. Сделать так, чтобы sudo не требовал пароль для выполнения команд.
+
+  
+  159  useradd
+  160  sudo useradd
+  163  ls -l
+  164  mkdir Hw3
+  165  cd Hw3
+  166  touch file{1..2}
+  167  ls -l
+  168  chmod 664 file1
+  169  ls -l
+  170  chmod 600 file2
+  171  ls -l
+  172  chmod g+rw file2
+  173  ls -l
+  174  chmod g-rw file2
+  175  chmod 666 file2
+  176  chmod 666 file1
+  178  chmod u-rw file2
+  179  chmod u+rw file2
+  180  chmod o-rw file2
+  181  chmod g-rw file2
+  182  chmod o-w file1
+  183  ls -l
+  184  sudo adduser test
+  186  cat /etc/passwd
+  187  sudo useradd test2
+  188  cat /etc/passwd
+  189  sudo userdel test2
+  190  cat /etc/passwd
+  194  sudo adduser test2
+  195  sudo userdel test2
+  196  ls -l /home/
+  197  rm -r /home/test2
+  198  sudo rm -r /home/test2
+  199  ls -l /home/
+  200  sudo groupadd testers
+  204  cat /etc/group
+  205  sudo usermod -aG test
+  206  cat /etc/group
+  212  cd Hw/Hw3/
+  213  sudo adduser test2
+  214  sudo usermod -aG test2
+  215  sudo usermod -aG testers test2
+  216  sudo usermod -aG testers test
+  217  cat /etc/group
+  218  id test
+  219  sudo groupadd testers2
+  220  cat /etc/group
+  221  sudo usermod -aG test test
+  222  cat /etc/group
+  223  id
+  224  sudo cat /etc/sudousers
+  225  sudo cat /etc/sudoers
+  226  sudo visudo
+  232  sudo visudo
+  233  sudo userdel test
+  234  sudo /etc/group
+  235  sudo /etc/group/
+  236  sudo cat /etc/group/
+  237  sudo cat /etc/group
+  238  cd home
+  239  cd /home/
+  240  ls
+  241  sudo rm test
+  242  sudo rm -r test
+  243  cd
+  244  history 
