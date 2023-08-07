@@ -1,0 +1,71 @@
+
+       Подключить дополнительный репозиторий на выбор: Docker, Nginx, Oracle MySQL. Установить любой пакет из этого репозитория.
+
+  245  sudo apt update
+  246  sudo apt upgrade 
+  247  sudo apt install nginx
+  248  for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+  249  sudo apt-get update
+  250  sudo apt-get install ca-certificates curl gnupg
+  251  sudo install -m 0755 -d /etc/apt/keyrings
+  252  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  253  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+  254  echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  255  sudo apt-get update
+  256  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  257  docker
+  258  cd
+
+  -
+  259  ls -l
+  260  cd Hw
+  261  mkdir Hw4
+  262  cd Hw4
+  263  sudo add-apt-repository ppa:ondrej/php
+  264  cd
+  265  sudo apt install php8.1
+  266  sudo apt dist-upgrade 
+  267  sudo apt upgrade 
+  --
+
+  268  #Установить и удалить deb-пакет с помощью dpkg. 
+
+
+  269  cd Hw/Hw4/
+  270  wget http://ports.ubuntu.com/pool/universe/g/gimp/gimp-data_2.99.16-2_all.deb
+  271  sudo dpkg -i gimp-data_2.99.16-2_all.deb 
+  272  sudo apt -f install
+  273  sudo dpkg -r gimp-data 
+  274  ls -l
+  275  sudo dpkg -r gimp-data
+  276  #Установить и удалить snap-пакет.
+  277  sudo snap search gimp
+  278  sudo snap install gimp 
+  279  cd /snap/bin/
+  280  ls
+  281  ll
+  282  df -Th
+  283  sudo snap remove gimp 
+  284  df -Th
+
+       Добавить задачу для выполнения каждые 3 минуты (создание директории, запись в файл).
+
+  --
+  289  sudo nano /etc/crontab
+  290  cd Hw/Hw4
+  291  mkdir 1
+  292  echo test >> file1
+  298  mv file1 /home/parallels/Hw/Hw4/1
+  303  whereis mkdir
+  --
+
+  328  sudo nano /etc/crontab
+  329  #03 *    * * *   parallels /usr/bin/mkdir /home/parallels/Hw/Hw4/new
+  330  #05 *    * * *   parallels /usr/bin/touch /home/parallels/Hw/Hw4/new/file1 // через 5 минут.
+
+  331  cd /home/parallels/Hw/Hw4
+  332  ls -l
+  333  history
+
+директории и файлы вроде не создаются, не понял работает ли cron и как проверить
