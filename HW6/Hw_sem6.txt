@@ -1,0 +1,100 @@
+
+Задание
+
+• Установить Nginx и настроить его на работу с PHP-FPM.
+
+• Установить Apache. Настроить обработку PHP. Добиться одновременной работы с Nginx.
+
+• Настроить схему обратного прокси для Nginx (динамика - на Apache).
+
+• Установить MySQL. Создать новую базу данных и таблицу в ней.
+
+    2  apt install
+    3  ps afx
+    4  apt install nginx apache2 libapache2-mod-php8.1 php8.1 php8.1-fpm
+    5  update
+    6  apt update
+    7  ps afx
+    8  ps afx | grep apache
+    9  ps afx | grep nginx
+   10  systemctl status nginx
+   11  ps afx | grep nginx
+   12  systemctl status nginx
+   13  ss -ntlp
+   14  apt remove nginx
+   15  systemctl status nginx
+   16  apt-get purge nginx
+   17  systemctl status nginx
+   18  apt-get remove  nginx
+   19  apt-get purge nginx
+   20  systemctl status nginx
+   21  apt install nginx
+   22  systemctl status 
+   23  systemctl status apache2
+   24  etc# cd nginx
+   25  etc# cd apache2
+   26  cd
+   27  etc# cd nginx
+   28  /etc# cd nginx
+   29  cd
+   30  ll
+   31  /etc/nginx/
+   32  ll
+   33  nginx
+   34  ll
+   35  apt-get purge apache2
+   36  apt-get remove apache2
+   37  systemctl status apache2
+   38  systemctl status nginx
+   39  apt install apache2
+   40  systemctl status apache2
+   41  grep -rni 'nginx'
+   42  grep -rni 'listen'
+   43  ll
+   44  /etc/nginx/
+   45  ll
+   46  cd /etc/nginx/
+   47  ll
+   48  grep -rni 'listen'
+   49  nano nginx.conf 
+   50  nano sites-available/default 
+   51  systemctl status nginx
+   52  grep -rni 'listen'
+   53  service nginx restart
+   54  systemctl status nginx
+   55  ss -ntlp
+   56  ps afx
+   57  curl localhost
+   58  ip a
+   59  curl localhoct:8080
+   60  curl localhost:8080
+   61  ll
+   62  cd sites-enabled/
+   63  ll
+   64  nano default 
+   65  nginx -s reload
+   66  nano default 
+   67  nginx -s reload
+   68  cd
+   69  apt install libapache2-mod-php8.1
+   70  nginx -s reload
+   71  cd /etc/apache2/mods-enabled/
+   72  ll
+   73  nano php8.1.conf 
+   74  cd
+   78  apt install libapache2-mod-php8.1
+   79  cd /var/www/html/
+   80  ll
+   81  cat > info.php
+   83  ll
+   84  nano info.php 
+   85  nginx -s reload
+   87  apt install mysql-server-8.0
+   88  systemctl status mysql
+   89  sudo mysql // создание базы данных 
+   90  cd /etc/nginx/
+   91  cd sites-enabled/
+   93  nano default // изменение файла, добавление location
+   94  nginx -s reload
+   95  cd
+
