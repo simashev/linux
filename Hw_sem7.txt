@@ -1,0 +1,99 @@
+
+Задание
+
+• Установить в виртуальную машину или VDS Docker, настроить набор контейнеров через docker compose по инструкции.
+Часть с настройкой certbot и HTTPS опустить, если у вас нет настоящего домена и белого IP.
+
+
+  109  apt install docker.io
+  110  apt install docker.io docker-compose
+  111  apt install docker-ce
+  112  ps afx
+  113  apt install docker-compose
+  114  docker
+  115  cd
+  116  docker
+  117  docker run -d --restart always --name nginx1 -p 80:80 -v /var/www/html:/usr/share/nginx/html/ nginx:1.24
+  118  ss -nt
+  119  ss -ntlp
+  120  service nginx stop
+  121  docker ps -a
+  122  docker start nginx1
+  123  ps afx
+  124  docker logs nginx1
+  125  iptables -nvL
+  126  ip a
+  127  docker rm
+  128  docker rm nginx1
+  129  docker rm -f nginx1
+  130  docker images
+  131  docker rmi nginx:1.24
+  132  ll
+  133  mkdir wordpress
+  134  cd wordpress/
+  135  mkdir nginx-conf
+  136  ll
+  137  cat > nginx.conf
+  138  vim nginx.conf
+  139  mv nginx.conf nginx.conf/
+  140  ll
+  141  mv nginx.conf nginx-conf/
+  142  ll
+  143  cat > .env
+  144  vim .env 
+  145  nano .env 
+  146  ll
+  147  cat > docker-compose.yml
+  148  nano docker-compose.yml 
+  149  docker-compose up -d
+  150  nano docker-compose.yml 
+  151  docker-compose up -d
+  152  nano docker-compose.yml 
+  153  docker-compose up -d
+  154  ll
+  155  nano docker-compose.yml 
+  156  docker-compose up -d
+  157  export COMPOSE_PROJECT_NAME=my_project_name
+  158  docker-compose up -d
+  159  export COMPOSE_PROJECT_NAME=my_project_name
+  160  docker-compose up -d
+  161  ll
+  162  nano .env
+  163  cd nginx-conf/
+  164  ll
+  165  nano nginx.conf 
+  166  docker-compose version
+  167  cd .
+  168  cd ./.
+  169  cd /
+  170  cd
+  171  cd wordpress/
+  172  export COMPOSE_PROJECT_NAME=wordpress
+  173  docker-compose up -d
+  174  nano docker-compose.yml 
+  175  docker-compose up -d
+  176  nano docker-compose.yml 
+  177  docker-compose up -d
+  178  nano docker-compose.yml 
+  179  cd nginx-conf/
+  180  nano nginx.conf 
+  181  cd
+  182  cd wordpress/
+  183  docker-compose up -d --force-recreate --no-deps webserver
+  184  cd nginx-conf/
+  185  nano nginx.conf
+  186  cd
+  187  ll
+  188  cd wordpress/
+  189  docker-compose up -d
+  190  nano docker-compose.yml 
+  191  docker-compose up -d
+  192  docker-compose version
+  193  nano docker-compose.yml 
+  194  docker-compose up -d
+  195  nano docker-compose.yml 
+  196  docker-compose up -d
+  197  nano docker-compose.yml 
+  198  docker-compose up -d
+  199  nano docker-compose.yml 
+  200  history
