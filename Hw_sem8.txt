@@ -1,0 +1,107 @@
+Написать скрипт очистки директорий.
+На вход принимает путь к директории.
+Если директория существует, то удаляет в ней все файлы с расширениями .bak, .tmp, .backup.
+Если директории нет, то выводит ошибку.
+
+
+  243  mkdir lesson8
+  244  cd lesson8/
+  245  mkdir scripts
+  246  cd scripts/
+  247  mkdir tmp
+  248  touch tmp/file{1..5}.bac
+  249  touch tmp/file{1..5}.backup
+  250  touch tmp/file{1..5}.tmp
+  251  touch tmp/file{1..5}.zip
+  252  touch tmp/file{1..5}.tar
+  253  ls tmp/
+  254  touch tmp/file{1..5}.bak
+  255  nano del.sh
+  257  ll
+  281  bash del.sh ./
+  283  ll
+
+
+---
+root@ubuntu-linux-22-04-desktop:~/lesson8/scripts/tmp# ll
+total 12
+drwxr-xr-x 2 root root 4096 Aug 22 23:26 ./
+drwxr-xr-x 3 root root 4096 Aug 22 23:26 ../
+-rw-r--r-- 1 root root  227 Aug 22 23:23 del.sh
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.backup
+-rw-r--r-- 1 root root    0 Aug 22 23:08 file1.bak
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file1.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.tmp
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.backup
+-rw-r--r-- 1 root root    0 Aug 22 23:08 file2.bak
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file2.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.tmp
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.backup
+-rw-r--r-- 1 root root    0 Aug 22 23:08 file3.bak
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file3.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.tmp
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.backup
+-rw-r--r-- 1 root root    0 Aug 22 23:08 file4.bak
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file4.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.tmp
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.backup
+-rw-r--r-- 1 root root    0 Aug 22 23:08 file5.bak
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file5.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.tmp
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.zip
+
+---
+скрипт: 
+
+
+#!/bin/bash
+
+directory=$1
+
+if [ -d $directory ]
+then 
+        for suffix in .bak .backup .tmp
+        do
+                for file in $(ls $directory | grep $suffix)
+                do
+                        rm $directory/$file
+                done
+        done
+else
+        echo "directory does not exist"
+        exit 1
+fi
+
+
+---
+Результат: 
+
+root@ubuntu-linux-22-04-desktop:~/lesson8/scripts/tmp# ll
+total 12
+drwxr-xr-x 2 root root 4096 Aug 22 23:33 ./
+drwxr-xr-x 3 root root 4096 Aug 22 23:26 ../
+-rw-r--r-- 1 root root  227 Aug 22 23:23 del.sh
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file1.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file1.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file2.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file2.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file3.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file3.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file4.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file4.zip
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.bac
+-rw-r--r-- 1 root root    0 Aug 22 23:07 file5.tar
+-rw-r--r-- 1 root root    0 Aug 22 23:06 file5.zip
